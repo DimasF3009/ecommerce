@@ -1,0 +1,157 @@
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #f9fafb;
+  overflow-x: hidden;
+}
+
+/* ==== Page Title ==== */
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ==== Filter Form ==== */
+.filter-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-form label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.filter-form select,
+.filter-form button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.filter-form select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.filter-form button {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-form button:hover {
+  background: #1e4ed8;
+}
+
+/* ==== Summary Cards ==== */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+
+/* ==== Chart Section ==== */
+.chart-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.chart-container h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* ==== Table ==== */
+.table-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.table-container h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table-container th {
+  background: #f3f4f6;
+  font-weight: 600;
+  color: #444;
+}
+
+.table-container tr:hover {
+  background: #f9fafc;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    padding: 15px;
+  }
+}

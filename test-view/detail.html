@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk</title>
+  <link rel="stylesheet" href="detail.css" />
+  <link rel="stylesheet" href="base.css"/>
+  <script src="detail.js" defer></script>
+</head>
+<body>
+
+  <!-- Header (global) -->
+  <header class="header">
+    <div class="container header__content">
+      <a href="homepage.html" class="logo">SNACK.IDN</a>
+
+      <!-- Nav -->
+      <nav class="nav nav--bottom">
+        <a href="homepage.html" class="nav__link">Beranda</a>
+        <a href="product.html" class="nav__link">Produk</a>
+      </nav>
+
+      <div class="header__top">
+        <!-- Search -->
+        <form class="search-bar">
+          <input type="text" placeholder="Cari jajanan favoritmu..." />
+          <button type="submit" aria-label="Cari">🔍</button>
+        </form>
+
+        <div class="header__actions">
+          <a href="cart.html" class="icon-btn" aria-label="Keranjang">🛒</a>
+          <a href="login.html" class="icon-btn" aria-label="Login">👤</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a href="homepage.html" class="breadcrumb-link">Home</a>
+        <span class="breadcrumb-separator">&gt;</span>
+        <a href="product.html" class="breadcrumb-link">Produk</a>
+        <span class="breadcrumb-separator">&gt;</span>
+        <span class="breadcrumb-current">Detail</span>
+      </nav>
+
+      <!-- Product Detail -->
+      <section class="product-detail">
+        <img src="../assets/img/68b062c12ba0f.jpeg" alt="Gambar Produk" class="product-image" />
+        
+        <div class="product-info-section">
+          <h1 class="product-title">Judul-Produk</h1>
+          <p class="product-price">Rp 3.000</p>
+          <p class="product-description">
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+          </p>
+
+          <div class="product-actions">
+            <div class="quantity-control">
+              <button class="qty-btn" id="decrease">-</button>
+              <span class="qty-value" id="quantity">1</span>
+              <button class="qty-btn" id="increase">+</button>
+            </div>
+            <button class="add-to-cart-btn">Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <h2>Snack.IDN</h2>
+        <p>Nikmati jajanan khas Nusantara langsung dari UMKM lokal.</p>
+      </div>
+
+      <div>
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Customer Support</a></li>
+          <li><a href="#">Delivery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>FAQ</h3>
+        <ul>
+          <li><a href="#">Akun</a></li>
+          <li><a href="#">Pesanan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Pembayaran</h3>
+        <div class="payment">
+          <img src="assets/images/img_visa.svg" alt="Visa" />
+          <img src="assets/images/img_mastercard.svg" alt="Mastercard" />
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SNACK.IDN</p>
+  </footer>
+
+</body>
+</html>

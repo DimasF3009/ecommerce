@@ -1,0 +1,289 @@
+/* ===== Cart Page ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  padding: 2rem 0;
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-link {
+  text-decoration: none;
+  color: #555;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #aaa;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* ===== Cart Layout ===== */
+.cart-layout {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Cart Items ===== */
+.cart-items {
+  flex: 2;
+  min-width: 280px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.item-image {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-title {
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-specs {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.item-specs .spec {
+  margin: 0.25rem 0;
+}
+
+.item-price {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ===== Quantity & Remove ===== */
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+.qty-btn {
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: #ff4d4f;
+  border: none;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===== Order Summary ===== */
+.order-summary {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.summary-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.summary-line.total {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.summary-separator {
+  border-top: 1px solid #ddd;
+  margin: 0.5rem 0;
+}
+
+.apply-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== Tombol Qty Bulat ===== */
+.item-actions form button[name="update_qty"] {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 50%;      /* buat bulat */
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-actions form button[name="update_qty"]:hover {
+    background: #e6e6e6;
+}
+
+.qty-value {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+/* ===== Tombol Hapus ===== */
+.remove-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+/* Modal wrapper */
+.modal {
+  display: none; /* <-- ini penting supaya modal awalnya hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* semi-transparent */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+
+}
+
+/* QR code container */
+#qrcode {
+  margin: 1rem 0;
+}
+
+/* Close button */
+.modal .close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.summary-address {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  background: #f9f9f9;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+.summary-address .edit-address {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cart-layout {
+    flex-direction: column;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-actions {
+    flex-direction: row;
+    margin-top: 0.5rem;
+  }
+
+  .order-summary {
+    width: 100%;
+  }
+}

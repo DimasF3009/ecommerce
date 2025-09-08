@@ -1,0 +1,142 @@
+:root {
+  --primary: #2196f3;
+  --primary-dark: #1976d2;
+  --text: #333;
+  --text-light: #666;
+  --bg: #fff;
+  --bg-alt: #f9f9f9;
+  --border: #ddd;
+  --gray: #aaa;
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0,0,0,0.1);
+  --transition: 0.3s ease;
+}
+/* ==== Hero ==== */
+.hero {
+  padding: 4rem 0;
+  background: var(--bg-alt);
+}
+.hero__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.hero__text {
+  flex: 1;
+}
+.hero__text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero__text p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+.hero__image {
+  flex: 1;
+  max-width: 500px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+/* ==== Produk ==== */
+.products {
+  padding: 4rem 0;
+}
+.product-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.product-card:hover {
+  transform: translateY(-4px);
+}
+.product-image {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+.product-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.product-price {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.add-to-cart {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.add-to-cart:hover {
+  background: var(--primary-dark);
+}
+
+.text-center{
+    margin: 20px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 1024px) {
+  /* Hero tablet */
+  .hero__text h1 {
+    font-size: 2rem;
+  }
+  .hero__image {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero stack jadi kolom */
+  .hero__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__text h1 {
+    font-size: 1.8rem;
+  }
+  .hero__text p {
+    font-size: 1rem;
+  }
+  .hero__image {
+    max-width: 100%;
+  }
+
+  /* Produk grid 2 kolom */
+  .products .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero font kecil */
+  .hero__text h1 {
+    font-size: 1.5rem;
+  }
+  .hero__text p {
+    font-size: 0.9rem;
+  }
+
+  /* Produk grid 1 kolom */
+  .products .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-name {
+    font-size: 1rem;
+  }
+  .product-price {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNACK.IDN - Keranjang Belanja</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__content">
+      <a href="homepage.html" class="logo">SNACK.IDN</a>
+      <nav class="nav nav--bottom">
+        <a href="homepage.html" class="nav__link">Beranda</a>
+        <a href="product.html" class="nav__link">Produk</a>
+      </nav>
+      <div class="header__top">
+        <form class="search-bar">
+          <input type="text" placeholder="Cari jajanan favoritmu..." />
+          <button type="submit">🔍</button>
+        </form>
+        <div class="header__actions">
+          <a href="cart.html" class="icon-btn">🛒</a>
+          <a href="login.html" class="icon-btn">👤</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content container">
+    <nav class="breadcrumbs">
+      <a href="homepage.html" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-separator">&gt;</span>
+      <span class="breadcrumb-current">Keranjang</span>
+    </nav>
+
+    <h1 class="page-title">Keranjang Belanja</h1>
+
+    <div class="cart-layout">
+      <!-- Cart Items -->
+      <section class="cart-items">
+        <div class="cart-item" data-price="3000" data-qty="1">
+          <img src="../assets/img/68b062c12ba0f.jpeg" alt="Kue Klepon" class="item-image" />
+          <div class="item-details">
+            <h2 class="item-title">Kue Klepon</h2>
+            <p class="item-spec"><span>Ukuran:</span> Sedang</p>
+            <p class="item-spec"><span>Rasa:</span> Pandan</p>
+            <p class="item-price">Rp 3.000</p>
+          </div>
+          <div class="item-actions">
+            <button class="remove-btn">❌</button>
+            <div class="quantity-control">
+              <button class="qty-btn minus">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item" data-price="5000" data-qty="1">
+          <img src="../assets/img/68b062c12ba0f.jpeg" alt="Kue Nastar" class="item-image" />
+          <div class="item-details">
+            <h2 class="item-title">Kue Nastar</h2>
+            <p class="item-spec"><span>Ukuran:</span> Sedang</p>
+            <p class="item-spec"><span>Rasa:</span> Keju</p>
+            <p class="item-price">Rp 5.000</p>
+          </div>
+          <div class="item-actions">
+            <button class="remove-btn">❌</button>
+            <div class="quantity-control">
+              <button class="qty-btn minus">-</button>
+              <span class="qty-value">1</span>
+              <button class="qty-btn plus">+</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Summary -->
+      <aside class="order-summary">
+        <h2 class="summary-title">Order Summary</h2>
+        <div class="summary-details">
+          <div class="summary-line subtotal">
+            <p>Subtotal</p>
+            <span>Rp 0</span>
+          </div>
+          <div class="summary-line discount">
+            <p>Discount (-20%)</p>
+            <span>Rp 0</span>
+          </div>
+          <div class="summary-line delivery">
+            <p>Delivery Fee</p>
+            <span>Rp 15.000</span>
+          </div>
+          <div class="summary-separator"></div>
+          <div class="summary-line total">
+            <p>Total</p>
+            <span>Rp 0</span>
+          </div>
+        </div>
+        <div class="promo-code-box">
+          <input type="text" placeholder="Add promo code" class="promo-input" />
+          <button class="apply-btn">Apply</button>
+        </div>
+        <button id="checkoutBtn" class="checkout-btn">Go to Checkout</button>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Checkout</h2>
+        <p>Total: <span id="checkoutTotal">Rp 0</span></p>
+        <div id="qrcode"></div>
+        <button class="confirm-btn">Konfirmasi Pembayaran</button>
+    </div>
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <h2>Snack.IDN</h2>
+        <p>Nikmati jajanan khas Nusantara langsung dari UMKM lokal.</p>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <ul>
+          <li><a href="#">Customer Support</a></li>
+          <li><a href="#">Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>FAQ</h3>
+        <ul>
+          <li><a href="#">Akun</a></li>
+          <li><a href="#">Pesanan</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pembayaran</h3>
+        <div class="payment">
+          <img src="assets/images/img_visa.svg" alt="Visa" />
+          <img src="assets/images/img_mastercard.svg" alt="Mastercard" />
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SNACK.IDN</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</body>
+</html>

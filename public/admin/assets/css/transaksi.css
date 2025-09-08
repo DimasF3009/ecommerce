@@ -1,0 +1,44 @@
+.transaksi-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.transaksi-list th, 
+.transaksi-list td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.transaksi-list th {
+  background: #f8f9fa;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.status.pending {
+  background: #ffc107;
+  color: #fff;
+}
+.status.success {
+  background: #28a745;
+  color: #fff;
+}
+.status.failed {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-save {
+  background: #007bff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}

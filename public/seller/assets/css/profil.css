@@ -1,0 +1,91 @@
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Profil Toko */
+.content h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: auto;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card input,
+.card textarea,
+.card select {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card input:focus,
+.card textarea:focus,
+.card select:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52,152,219,0.2);
+}
+
+.card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.card button {
+  background: #3498db;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background: #2980b9;
+}
+
+/* Foto Profil Preview */
+.profile-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-preview img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+}

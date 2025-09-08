@@ -1,0 +1,107 @@
+:root {
+  --primary: #2196f3;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.login-card {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* kiri */
+.login-left {
+  flex: 1;
+  background: #eef6fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-left img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* kanan */
+.login-right {
+  flex: 1;
+  padding: 40px;
+}
+.login-right h2 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+.login-right h2 span {
+  font-weight: bold;
+}
+.login-right input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.login-right button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+.login-right button:hover {
+  background: #1976d2;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.register-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.register-link a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-card {
+    flex-direction: column;
+  }
+  .login-left {
+    order: -1; /* gambar pindah ke atas */
+    padding: 30px;
+  }
+  .login-right {
+    padding: 20px;
+  }
+}
