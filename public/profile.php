@@ -86,7 +86,7 @@ $profile = $stmt->get_result()->fetch_assoc();
         <input type="email" name="email" id="email" value="<?= htmlspecialchars($profile['email']) ?>" required>
 
         <label for="address">Alamat</label>
-        <textarea name="address" id="address" rows="4" required><?= htmlspecialchars($profile['address'] ?? '') ?></textarea>
+        <textarea name="address" id="address" rows="4"><?= htmlspecialchars($profile['address'] ?? '') ?></textarea>
 
         <button type="submit" class="btn">Simpan Perubahan</button>
       </form>

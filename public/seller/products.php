@@ -85,6 +85,13 @@ $stmt = $conn->prepare("
 $stmt->bind_param("s", $seller_id);
 $stmt->execute();
 $products = $stmt->get_result();
+
+// ===== Ambil semua kategori untuk dropdown =====
+$catStmt = $conn->query("SELECT id, name FROM category ORDER BY name ASC");
+$categories = [];
+while ($row = $catStmt->fetch_assoc()) {
+    $categories[] = $row;
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -114,7 +121,15 @@ $products = $stmt->get_result();
         <textarea name="description" placeholder="Deskripsi" required></textarea>
         <input type="number" name="price" placeholder="Harga" required>
         <input type="number" name="stock" placeholder="Stok" required>
-        <input type="text" name="category" placeholder="ID Kategori" required>
+
+        <!-- Dropdown kategori -->
+        <select name="category" required>
+          <option value="">-- Pilih Kategori --</option>
+          <?php foreach($categories as $c): ?>
+            <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['name']) ?></option>
+          <?php endforeach; ?>
+        </select>
+
         <input type="file" name="image_file" id="add_image_file" accept="image/*">
         <img id="add_preview" src="#" alt="Preview Gambar" style="display:none;width:100px;">
         <button type="submit" name="add_product" class="btn-primary">Tambah Produk</button>
@@ -180,12 +195,20 @@ $products = $stmt->get_result();
     <textarea name="description" id="edit_description" required></textarea>
     <input type="number" name="price" id="edit_price" required>
     <input type="number" name="stock" id="edit_stock" required>
-    <input type="text" name="category" id="edit_category" required>
+
+    <!-- Dropdown kategori (edit) -->
+    <select name="category" id="edit_category" required>
+      <option value="">-- Pilih Kategori --</option>
+      <?php foreach($categories as $c): ?>
+        <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['name']) ?></option>
+      <?php endforeach; ?>
+    </select>
+
     <input type="file" name="image_file" id="edit_image_file" accept="image/*">
     <img id="edit_preview" src="#" alt="Preview Gambar" style="width:100px;">
     <div class="modal-actions">
       <button type="submit" name="update_product" class="btn-primary">Update</button>
-      <button type="button" class="btn-secondary" onclick="closeEditModal()">Batal</button>
+      <button type="button" class="modal-btn-delete" onclick="closeEditModal()">Batal</button>
     </div>
   </form>
 </div>
@@ -212,6 +235,8 @@ $products = $stmt->get_result();
       document.getElementById('edit_description').value = desc;
       document.getElementById('edit_price').value = price;
       document.getElementById('edit_stock').value = stock;
+
+      // set kategori di dropdown
       document.getElementById('edit_category').value = categoryId;
 
       const preview = document.getElementById('edit_preview');

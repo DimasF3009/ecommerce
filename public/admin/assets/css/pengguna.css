@@ -85,3 +85,37 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+form label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+form input, form select, textarea, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form .btn-submit {
+  margin-top: 15px;
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form .btn-cancel {
+  margin-top: 15px;
+  background: #6c757d;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}

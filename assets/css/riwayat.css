@@ -52,9 +52,58 @@
 .item-qty { color: #666; }
 .item-price { font-weight: 600; color: #222; }
 
-/* .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 230px;
-} */
+/* --- Rating Form --- */
+.rating-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-form .stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.rating-form .stars input {
+  display: none;
+}
+
+.rating-form .stars label {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-form .stars input:checked ~ label,
+.rating-form .stars label:hover,
+.rating-form .stars label:hover ~ label {
+  color: #FFD700; /* emas */
+}
+
+.rating-form textarea {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.rating-form button {
+  background: #28a745;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  align-self: flex-start;
+  transition: background 0.2s;
+}
+
+.rating-form button:hover {
+  background: #218838;
+}

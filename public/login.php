@@ -10,23 +10,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = $userModel->login($email, $password);
-    if ($user) {
-        $_SESSION['user'] = $user;
+    $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        // redirect sesuai role
-        if ($user['role'] == 'admin') {
-            header("Location: admin/dashboard.php");
-        } elseif ($user['role'] == 'penjual') {
-            header("Location: seller/dashboard.php");
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (!password_verify($password, $user['password'])) {
+            $message = "Password salah!";
+        } elseif ($user['status'] !== 'active') {
+            $message = "Akun Anda sedang ditangguhkan.";
         } else {
-            header("Location: homepage.php");
+            // sukses login
+            $_SESSION['user'] = $user;
+
+            if ($user['role'] == 'admin') {
+                header("Location: admin/dashboard.php");
+            } elseif ($user['role'] == 'penjual') {
+                header("Location: seller/dashboard.php");
+            } else {
+                header("Location: homepage.php");
+            }
+            exit;
         }
-        exit;
     } else {
-        $message = "Email atau password salah!";
+        $message = "Email tidak ditemukan!";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="id">

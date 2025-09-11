@@ -6,18 +6,34 @@ require_once __DIR__ . '/../../config/database.php';
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = trim($_POST['email']);
+    $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    $res = $conn->query("SELECT * FROM user WHERE email='$email' AND role='penjual' LIMIT 1");
-    $user = $res->fetch_assoc();
+    $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user'] = $user;
-        header("Location: dashboard.php");  // redirect ke dashboard
-        exit;
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (!password_verify($password, $user['password'])) {
+            $message = "Password salah!";
+        } elseif ($user['status'] !== 'active') {
+            $message = "Akun Anda sedang ditangguhkan.";
+        } else {
+            // sukses login
+            $_SESSION['user'] = $user;
+
+            if ($user['role'] == 'penjual') {
+                header("Location: dashboard.php");
+            } else {
+                header("Location: login.php");
+            }
+            exit;
+        }
     } else {
-        $error = "Email / password salah!";
+        $message = "Email tidak ditemukan!";
     }
 }
 ?>

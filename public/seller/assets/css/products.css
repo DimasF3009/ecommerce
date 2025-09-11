@@ -42,7 +42,7 @@ form button {
   font-size: 0.95rem;
 }
 
-form input, form textarea{
+form input, form textarea ,form select {
   padding: 5px;
   width: 100%;
   margin-bottom: 12px;
@@ -61,6 +61,14 @@ form button {
 
 form button:hover {
   background: #45a049;
+}
+
+form button.modal-btn-delete {
+  background: #f44336;
+}
+
+form button.modal-btn-delete:hover {
+  background: #c42f25;
 }
 
 /* ====== Tabel ====== */
